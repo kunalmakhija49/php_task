@@ -1,3 +1,8 @@
+<?php
+
+//include('authenticate.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,6 +55,7 @@
                 <tr>
                     <td></td>
                     <td><input type="submit" /></td>
+                    <td><a href="details.php">fetch existing records</a></td>
                 </tr>
             </form>
         </table>
