@@ -15,25 +15,20 @@ if ($conn->connect_error) {
     die("connection fail: " . $conn->connect_error);
 }
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $useremail = mysqli_real_escape_string($conn,$_POST["loginemail"]);
-    $password = mysqli_real_escape_string($conn,$_POST["loginpassowrd"]);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $useremail = mysqli_real_escape_string($conn, $_POST["loginemail"]);
+    $password = mysqli_real_escape_string($conn, $_POST["loginpassowrd"]);
     $user = "SELECT id FROM admin WHERE email='$useremail' and password = '$password' ";
-    $result = mysqli_query($conn,$user);
-    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $result = mysqli_query($conn, $user);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $count = mysqli_num_rows($result);
-    if($count == 1){
+    if ($count == 1) {
         //session_register("myusername");
         $_SESSION['login_user'] = $myusername;
         header("location:Registration.php");
-    
-    
-    
-    }else{
+    } else {
         $error = "your Email Address or password is invalid ";
     }
-    
-
 }
 
 ?>
@@ -44,32 +39,44 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 <head>
 
     <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         .box {
-            border:#666666 solid 1px;
-         }
+            border: #666666 solid 1px;
+        }
     </style>
 </head>
 
 <body>
     <center>
-        <h2>Login </h2>
+        <label for="login"><h2>Login</h2></label>
         <table>
-            <form action="login.php" method="POST">
+            <form action="login.php" method="POST" class="form-group">
                 <tr>
-                    <td>Email Address:</td>
-                    <td><input type="email" id="loginemail" name="loginemail" class="box" /></td>
+                    <td><label for="email">Email Address:</label></td>
+                    <td><input type="email" id="loginemail" name="loginemail" class="form-control" /></td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                    <td><br></td>
                 </tr>
 
                 <tr>
-                    <td>Password:</td>
-                    <td><input type="password" name="loginpassowrd" id="loginpassword" class="box"/></td>
+                    <td><label for="pwd">Password:</label></td>
+                    <td><input type="password" name="loginpassowrd" id="loginpassword" class="form-control" /></td>
+                </tr>
+
+                <tr>
+                    <td><br></td>
+                    <td><br></td>
                 </tr>
 
                 <tr>
                     <td></td>
-                    <td><input type="submit" />
-                    <small><a href="signup.php">signup</a>
+                    <td><input type="submit" class="btn btn-primary" />
+                        <small><label for="signup"><a href="signup.php">signup</label></a>
                     </td>
                 </tr>
             </form>
@@ -77,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         <div><?php echo $error ?></div>
     </center>
 
-    
+
 </body>
 
 </html>

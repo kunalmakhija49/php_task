@@ -1,4 +1,5 @@
 <?php
+error_reporting(1);
 
 $servername = "localhost";
 $username = "root";
@@ -28,48 +29,82 @@ $joining = $_GET['jn'];
 <head>
     
     <title>update</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <center>
+    <br>
+    <br>
         <table>
             <form action="" method="get">
                 <tr>
-                    <td>Employee code:</td>
-                    <td><input type="text" id="eid" name="eid" value="<?php echo $ec ?>" readonly /></td>
+                    <td><label for="code">Employee code:</label> </td>
+                    <td><input type="text" id="eid" name="eid" class="form-control" value="<?php echo $ec ?>" readonly /></td>
                 </tr>
                 <tr>
-                    <td>Name:</td>
-                    <td><input type="text" id="name" value="<?php echo $name ?>" name="name" required /></td>
+                    <td><br></td>
+                    <td><br></td>
                 </tr>
-
                 <tr>
-                    <td>Email:</td>
-                    <td><input type="email" id="email" name="email" value="<?php echo $email ?>" required /></td>
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" id="name" class="form-control" value="<?php echo $name ?>" name="name" required /></td>
                 </tr>
-
                 <tr>
-                    <td>Mobile Number:</td>
-                    <td><input type="text" id="number" name="number" value="<?php echo $number ?>" required /></td>
+                    <td><br></td>
+                    <td><br></td>
                 </tr>
 
                 <tr>
-                    <td>Department:</td>
-                    <td><input type="text" id="department" name="department" value="<?php echo $department ?>" required></td>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email" class="form-control" value="<?php echo $email ?>" required /></td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                    <td><br></td>
                 </tr>
 
                 <tr>
-                    <td>Designation:</td>
-                    <td><input type="text" id="designation" name="designation" value="<?php echo $designation ?>" required /></td>
+                    <td><label for="number">Mobile Number:</label></td>
+                    <td><input type="text" id="number" name="number" class="form-control" value="<?php echo $number ?>" required /></td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                    <td><br></td>
                 </tr>
 
                 <tr>
-                    <td>Joining Date:</td>
-                    <td><input type="date" id="joindate" name="joindate" value="<?php echo $joining ?>" required></td>
+                    <td><label for="dpt">Department:</label></td>
+                    <td><input type="text" id="department" name="department" class="form-control" value="<?php echo $department ?>" required></td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                    <td><br></td>
+                </tr>
+
+                <tr>
+                    <td><label for="dsg">Designation:</label></td>
+                    <td><input type="text" id="designation" name="designation" class="form-control" value="<?php echo $designation ?>" required /></td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                    <td><br></td>
+                </tr>
+
+                <tr>
+                    <td><label for="date">Joining Date:</label></td>
+                    <td><input type="date" id="joindate" name="joindate" class="form-control" value="<?php echo $joining ?>" required></td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                    <td><br></td>
                 </tr>
 
                 <tr>
                     <td></td>
-                    <td><input type="submit" name="submit" /></td>
+                    <td><input type="submit" name="submit" class="btn btn-primary" value="Update"/></td>
                     
                 </tr>
             </form>

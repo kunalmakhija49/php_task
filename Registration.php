@@ -9,6 +9,9 @@
 <head>
 
     <title>User Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -16,46 +19,73 @@
 
 
     ?>
-
-    <h2 style="text-align: center;">Registration Form</h2>
-    <br>
     <center>
+        <label for="Registration">
+            <h2>Registration Form</h2>
+        </label>
+        <br>
+        <br>
+
+
         <table>
             <form action="display.php" method="post">
                 <tr>
-                    <td>Name:</td>
-                    <td><input type="text" id="name" name="name" required /></td>
+                    <!-- <td><label for="email">Email Address:</label></td> -->
+                    <!-- <td><input type="email" id="loginemail" name="loginemail" class="form-control" /></td> -->
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" id="name" name="name" class="form-control" required /></td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                    <td><br></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email" class="form-control" required /></td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                    <td><br></td>
                 </tr>
 
                 <tr>
-                    <td>Email:</td>
-                    <td><input type="email" id="email" name="email" required /></td>
+                    <td><label for="number">Mobile Number:</label> </td>
+                    <td><input type="text" id="number" name="number" class="form-control" required /></td>
                 </tr>
 
                 <tr>
-                    <td>Mobile Number:</td>
-                    <td><input type="text" id="number" name="number" required /></td>
+                    <td><br></td>
+                    <td><br></td>
                 </tr>
 
                 <tr>
-                    <td>Department:</td>
-                    <td><input type="text" id="department" name="department" required></td>
+                    <td><label for="Department">Department:</label></td>
+                    <td><input type="text" id="department" name="department" class="form-control" required></td>
                 </tr>
-
                 <tr>
-                    <td>Designation:</td>
-                    <td><input type="text" id="designation" name="designation" required /></td>
+                    <td><br></td>
+                    <td><br></td>
                 </tr>
-
                 <tr>
-                    <td>Joining Date:</td>
-                    <td><input type="date" id="joindate" name="joindate" required></td>
+                    <td><label for="Designation">Designation:</label></td>
+                    <td><input type="text" id="designation" name="designation" class="form-control" required /></td>
                 </tr>
-
+                <tr>
+                    <td><br></td>
+                    <td><br></td>
+                </tr>
+                <tr>
+                    <td><label for="Joining Date">Joining Date:</label></td>
+                    <td><input type="date" id="joindate" name="joindate" class="form-control" required></td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                    <td><br></td>
+                </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" /></td>
-                    <td><a href="details.php">fetch existing records</a></td>
+                    <td><input type="submit" class="btn btn-success" value="Submit" /></td>
+                    <td><label for="fetch"><a href="details.php">fetch existing records</a></label></td>
                 </tr>
             </form>
         </table>
