@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION["login_user"])) {
+    header("location:login.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +21,7 @@
 <?php
 
 $table_id = $_POST["searchbar"];
- 
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -26,7 +33,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("connection fail: " . $conn->connect_error);
 }
-$sql="SELECT * FROM details where employee_code = '$table_id' ";
+$sql = "SELECT * FROM details where employee_code = '$table_id' ";
 
 // $stmt->bind_param("i",$id);
 // // $id = $table_id;
@@ -35,36 +42,36 @@ $sql="SELECT * FROM details where employee_code = '$table_id' ";
 $result = $conn->query($sql);
 echo "<br>";
 echo "<table border='1' class='table table-striped table-dark'>";
-    echo "<tr>";
+echo "<tr>";
 
-    echo "<th scope='col'>";
-    echo "Employee code";
-    echo "</th>";
+echo "<th scope='col'>";
+echo "Employee code";
+echo "</th>";
 
-    echo "<th scope='col'>";
-    echo "Name";
-    echo "</th>";
+echo "<th scope='col'>";
+echo "Name";
+echo "</th>";
 
-    echo "<th scope='col'>";
-    echo "email";
-    echo "</th>";
+echo "<th scope='col'>";
+echo "email";
+echo "</th>";
 
-    echo "<th scope='col'>";
-    echo "mobile number";
-    echo "</th>";
+echo "<th scope='col'>";
+echo "mobile number";
+echo "</th>";
 
-    echo "<th scope='col'>";
-    echo "department";
-    echo "</th>";
-    echo "<th scope='col'>";
-    echo "designation";
-    echo "</th>";
-    echo "<th scope='col'>";
-    echo "joining date";
-    echo "</th>";
-    echo "</tr>";
+echo "<th scope='col'>";
+echo "department";
+echo "</th>";
+echo "<th scope='col'>";
+echo "designation";
+echo "</th>";
+echo "<th scope='col'>";
+echo "joining date";
+echo "</th>";
+echo "</tr>";
 
-while($row = $result->fetch_assoc()){
+while ($row = $result->fetch_assoc()) {
     // echo "Employee Code: " . $row["employee_code"]."<br>"."Name: ".$row["name"]."<br>".
     // "Email:".$row["email"]."<br>"."Number: ".$row["mobile_number"]."<br>"."Department: ".$row["department"]."<br>"
     // ."Designation: ".$row["designation"]."<br>"
@@ -83,7 +90,7 @@ while($row = $result->fetch_assoc()){
 
 
 }
- 
+
 // $stmt->close();
 $conn->close();
 

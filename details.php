@@ -2,6 +2,9 @@
 session_start();
 error_reporting(1);
 //include('authenticate.php');
+if (!isset($_SESSION["login_user"])) {
+    header("location:login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -154,7 +157,7 @@ error_reporting(1);
         </div>
     </div>
 
-    <button onclick="logout.php" value="Logout" class="btn btn-warning">Logout</button>
+     <a href="logout.php"> Logout</a>
     <!-- <script>
         var editbtn = document.getElementById("editbtn");
         var modal = document.getElementById("mymodal");

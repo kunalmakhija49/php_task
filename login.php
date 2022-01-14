@@ -14,6 +14,22 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("connection fail: " . $conn->connect_error);
 }
+//$email = $_POST["loginemail"];
+//$pass= $_POST['loginpassowrd'];
+//$sql = "SELECT * FROM admin WHERE email='$email' and password='$pass'";
+//$result = $conn->query($sql);
+//;
+//if ($result->num_rows > 0){
+//    $row = $result->fetch_assoc();
+//    $_SESSION["user"]=$row["email"];
+//    if($email==$row["email"]&&$pass==$row["password"]){
+//        echo "<script> alert('Login Successfully')</script>";
+//        header("location:Registration.php");
+//    }else{
+//        echo "email of password incorrect";
+//    }
+//}
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $useremail = mysqli_real_escape_string($conn, $_POST["loginemail"]);
@@ -22,9 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_query($conn, $user);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $count = mysqli_num_rows($result);
+    // $_SESSION["user"]=$row["email"];
     if ($count == 1) {
         //session_register("myusername");
-        $_SESSION['login_user'] = $myusername;
+        $_SESSION['login_user'] = $useremail;
         header("location:Registration.php");
     } else {
         $error = "your Email Address or password is invalid ";
@@ -50,39 +67,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <center>
-        <label for="login"><h2>Login</h2></label>
-        <table>
-            <form action="login.php" method="POST" class="form-group">
-                <tr>
-                    <td><label for="email">Email Address:</label></td>
-                    <td><input type="email" id="loginemail" name="loginemail" class="form-control" /></td>
-                </tr>
-                <tr>
-                    <td><br></td>
-                    <td><br></td>
-                </tr>
+<center>
+    <label for="login"><h2>Login</h2></label>
+    <table>
+        <form action="login.php" method="POST" class="form-group">
+            <tr>
+                <td><label for="email">Email Address:</label></td>
+                <td><input type="email" id="loginemail" name="loginemail" class="form-control"/></td>
+            </tr>
+            <tr>
+                <td><br></td>
+                <td><br></td>
+            </tr>
 
-                <tr>
-                    <td><label for="pwd">Password:</label></td>
-                    <td><input type="password" name="loginpassowrd" id="loginpassword" class="form-control" /></td>
-                </tr>
+            <tr>
+                <td><label for="pwd">Password:</label></td>
+                <td><input type="password" name="loginpassowrd" id="loginpassword" class="form-control"/></td>
+            </tr>
 
-                <tr>
-                    <td><br></td>
-                    <td><br></td>
-                </tr>
+            <tr>
+                <td><br></td>
+                <td><br></td>
+            </tr>
 
-                <tr>
-                    <td></td>
-                    <td><input type="submit" class="btn btn-primary" />
-                        <small><label for="signup"><a href="signup.php">signup</label></a>
-                    </td>
-                </tr>
-            </form>
-        </table>
-        <div><?php echo $error ?></div>
-    </center>
+            <tr>
+                <td></td>
+                <td><input type="submit" class="btn btn-primary"/>
+                    <small><label for="signup"><a href="signup.php">signup</label></a></small>
+                </td>
+            </tr>
+        </form>
+    </table>
+    <div><?php echo $error ?></div>
+</center>
 
 
 </body>
